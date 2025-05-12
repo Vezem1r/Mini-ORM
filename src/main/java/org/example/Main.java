@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import org.example.dao.*;
 import org.example.db.Database;
 import org.example.entity.*;
@@ -69,8 +68,7 @@ public class Main {
     String attachmentPath = "/uploads";
 
     boolean success =
-            TopicDao.createUsingProcedure(
-                    topic, tags, attachmentFilename, attachmentPath);
+        TopicDao.createUsingProcedure(topic, tags, attachmentFilename, attachmentPath);
 
     if (success) {
       logger.info("Topic successfully created with ID: " + topic.getTopicId());
@@ -87,7 +85,7 @@ public class Main {
     Topic topic = new Topic();
     topic.setTitle("AGAGAGAGAGAGDASJDSFHSDFKDSFDSFKLDSKLDSGHDSGKL");
     topic.setContent(
-            "What IDE do you recommend for Python development? I'm using PyCharm but interested in alternatives.");
+        "What IDE do you recommend for Python development? I'm using PyCharm but interested in alternatives.");
     topic.setUserId(5);
     topic.setCategoryId(3); // Programming category
 
@@ -96,8 +94,7 @@ public class Main {
     String attachmentPath = "/uploads";
 
     boolean success =
-            TopicDao.createUsingSqlStatements(
-                    topic, tags, attachmentFilename, attachmentPath);
+        TopicDao.createUsingSqlStatements(topic, tags, attachmentFilename, attachmentPath);
 
     if (success) {
       logger.info("Topic successfully created with ID: " + topic.getTopicId());
@@ -176,9 +173,9 @@ public class Main {
     if (topic != null) {
       logger.info("  Title: " + topic.getTitle());
       logger.info(
-              "  Content: "
-                      + topic.getContent().substring(0, Math.min(50, topic.getContent().length()))
-                      + "...");
+          "  Content: "
+              + topic.getContent().substring(0, Math.min(50, topic.getContent().length()))
+              + "...");
       logger.info("  Created: " + topic.getCreatedAt());
 
       // Tags
